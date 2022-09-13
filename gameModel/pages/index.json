@@ -1,0 +1,38 @@
+{
+  "defaultPageId" : "4",
+  "root" : {
+    "@class" : "Folder",
+    "items" : [ {
+      "@class" : "Page",
+      "id" : "2",
+      "name" : "Main Page",
+      "scenaristPage" : false,
+      "trainerPage" : null
+    }, {
+      "@class" : "Page",
+      "id" : "1",
+      "name" : "truc",
+      "scenaristPage" : true,
+      "trainerPage" : null
+    }, {
+      "@class" : "Page",
+      "id" : "3",
+      "name" : "aMap",
+      "scenaristPage" : null,
+      "trainerPage" : null
+    }, {
+      "@class" : "Page",
+      "id" : "4",
+      "name" : "Yverdon",
+      "scenaristPage" : null,
+      "trainerPage" : null
+    }, {
+      "@class" : "Page",
+      "id" : "5",
+      "name" : "Genève",
+      "scenaristPage" : false,
+      "trainerPage" : null
+    } ],
+    "name" : null
+  }
+}

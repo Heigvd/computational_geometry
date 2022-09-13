@@ -1,0 +1,158 @@
+{
+  "/" : {
+    "description" : "",
+    "mimeType" : "application/wfs-directory",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/bat.geojson" : {
+    "description" : "",
+    "mimeType" : "application/geo+json",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/bat4326.geojson" : {
+    "description" : "",
+    "mimeType" : "application/geo+json",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/genf/" : {
+    "description" : "",
+    "mimeType" : "application/wfs-directory",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/genf/genf_buildings.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/genf/genf_roads.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/genf/genf_water.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/" : {
+    "description" : "",
+    "mimeType" : "application/wfs-directory",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/geneva/" : {
+    "description" : "",
+    "mimeType" : "application/wfs-directory",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/geneva/bbox.data" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/geneva/buildings.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/geneva/rails.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/geneva/roads.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/geneva/water.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/yverdon/" : {
+    "description" : "",
+    "mimeType" : "application/wfs-directory",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/yverdon/bbox.data" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/yverdon/buildings.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/yverdon/rails.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/yverdon/roads.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/maps/yverdon/water.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/sadasd/" : {
+    "description" : "",
+    "mimeType" : "application/wfs-directory",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/sadasd/Akazuaki-horitomo-cat-tattoo-8_465_694_int.jpg" : {
+    "description" : "",
+    "mimeType" : "image/jpeg",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/sadasd/Anne_Maxence2.jpg" : {
+    "description" : "",
+    "mimeType" : "image/jpeg",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/stRoch.osm" : {
+    "description" : "",
+    "mimeType" : "application/vnd.openstreetmap.data+xml",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/streets.geojson" : {
+    "description" : "",
+    "mimeType" : "application/geo+json",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  },
+  "/yverdon-seas.geojson" : {
+    "description" : "",
+    "mimeType" : "application/octet-stream",
+    "note" : "",
+    "visibility" : "PRIVATE"
+  }
+}

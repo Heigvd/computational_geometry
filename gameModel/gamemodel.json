@@ -1,0 +1,986 @@
+{
+  "@class" : "GameModel",
+  "basedOnId" : null,
+  "comments" : null,
+  "createdById" : null,
+  "createdByName" : null,
+  "createdTime" : 1663078909034,
+  "description" : null,
+  "items" : [ {
+    "@class" : "StringDescriptor",
+    "allowedValues" : [ ],
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "StringInstance",
+      "refId" : "StringInstance:24033559:rt8PLZ",
+      "trValue" : {
+        "@class" : "TranslatableContent",
+        "refId" : "TranslatableContent:24033560:OzzqP3",
+        "translations" : {
+          "EN" : {
+            "@class" : "Translation",
+            "lang" : "EN",
+            "refId" : "TranslatableContent:24033560:OzzqP3::EN",
+            "status" : "",
+            "translation" : "initial value"
+          },
+          "FR" : {
+            "@class" : "Translation",
+            "lang" : "FR",
+            "refId" : "TranslatableContent:24033560:OzzqP3::FR",
+            "status" : null,
+            "translation" : "valeur initiale"
+          }
+        }
+      }
+    },
+    "editorTag" : "a super text",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24033561:N0patz",
+      "translations" : {
+        "EN" : {
+          "@class" : "Translation",
+          "lang" : "EN",
+          "refId" : "TranslatableContent:24033561:N0patz::EN",
+          "status" : "",
+          "translation" : ""
+        },
+        "FR" : {
+          "@class" : "Translation",
+          "lang" : "FR",
+          "refId" : "TranslatableContent:24033561:N0patz::FR",
+          "status" : null,
+          "translation" : ""
+        }
+      }
+    },
+    "maxSelectable" : 1,
+    "name" : "aText",
+    "refId" : "StringDescriptor:24033558:sC2x9I",
+    "scopeType" : "TeamScope",
+    "sortable" : false,
+    "validationPattern" : null,
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "NumberDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "NumberInstance",
+      "history" : [ ],
+      "refId" : "NumberInstance:24033573:RCzqL8",
+      "value" : 150.0
+    },
+    "defaultValue" : 150.0,
+    "editorTag" : "XYZ",
+    "historySize" : 20,
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24033574:e8llHH",
+      "translations" : {
+        "EN" : {
+          "@class" : "Translation",
+          "lang" : "EN",
+          "refId" : "TranslatableContent:24033574:e8llHH::EN",
+          "status" : "",
+          "translation" : "Le X"
+        },
+        "FR" : {
+          "@class" : "Translation",
+          "lang" : "FR",
+          "refId" : "TranslatableContent:24033574:e8llHH::FR",
+          "status" : null,
+          "translation" : ""
+        }
+      }
+    },
+    "maxValue" : 200.0,
+    "minValue" : 12.0,
+    "name" : "x",
+    "refId" : "NumberDescriptor:24033572:9BlvHg",
+    "scopeType" : "TeamScope",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "FSMDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "FSMInstance",
+      "currentStateId" : 1,
+      "enabled" : true,
+      "refId" : "StateMachineInstance:24033578:rm2AHn",
+      "transitionHistory" : [ ]
+    },
+    "editorTag" : "fsm !!!!",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24033579:FYwN0Y",
+      "translations" : {
+        "EN" : {
+          "@class" : "Translation",
+          "lang" : "EN",
+          "refId" : "TranslatableContent:24033579:FYwN0Y::EN",
+          "status" : "",
+          "translation" : ""
+        },
+        "FR" : {
+          "@class" : "Translation",
+          "lang" : "FR",
+          "refId" : "TranslatableContent:24033579:FYwN0Y::FR",
+          "status" : null,
+          "translation" : ""
+        }
+      }
+    },
+    "name" : "theStateMachine",
+    "refId" : "StateMachineDescriptor:24033577:0X7eho",
+    "scopeType" : "TeamScope",
+    "states" : {
+      "1" : {
+        "@class" : "State",
+        "index" : 1,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24033580:wCMbfA",
+        "transitions" : [ {
+          "@class" : "Transition",
+          "dependencies" : [ {
+            "@class" : "TransitionDependency",
+            "refId" : "TransitionDependency:24033585:NHAaz4",
+            "scope" : "SELF",
+            "variableName" : "x"
+          } ],
+          "dependsOnStrategy" : "AUTO",
+          "index" : 0,
+          "label" : "",
+          "nextStateId" : 2,
+          "preStateImpact" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "refId" : "Transition:#0:GSA94W",
+          "triggerCondition" : {
+            "@class" : "Script",
+            "content" : "Variable.find(gameModel, 'x').getValue(self) > 15;",
+            "language" : "JavaScript"
+          },
+          "version" : null
+        } ],
+        "version" : null,
+        "x" : 139,
+        "y" : 246
+      },
+      "2" : {
+        "@class" : "State",
+        "index" : 2,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "Variable.find(gameModel, 'aText').setValue(self, {\n  \"@class\": \"TranslatableContent\",\n  \"translations\": {\n    \"EN\": {\n      \"@class\": \"Translation\",\n      \"lang\": \"EN\",\n      \"status\": \"\",\n      \"translation\": \"CarabistouilleStrouille !\"\n    }\n  },\n  \"version\": 0\n});",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24033583:ScnieX",
+        "transitions" : [ {
+          "@class" : "Transition",
+          "dependencies" : [ {
+            "@class" : "TransitionDependency",
+            "refId" : "TransitionDependency:24033588:vjB9QX",
+            "scope" : "SELF",
+            "variableName" : "x"
+          } ],
+          "dependsOnStrategy" : "AUTO",
+          "index" : 0,
+          "label" : "",
+          "nextStateId" : 1,
+          "preStateImpact" : {
+            "@class" : "Script",
+            "content" : "Variable.find(gameModel, 'aText').setValue(self, {\n  \"@class\": \"TranslatableContent\",\n  \"translations\": {\n    \"EN\": {\n      \"@class\": \"Translation\",\n      \"lang\": \"EN\",\n      \"status\": \"\",\n      \"translation\": \"OUihhgggg\"\n    }\n  },\n  \"version\": 0\n});",
+            "language" : "JavaScript"
+          },
+          "refId" : "Transition:#0:C3NP6s",
+          "triggerCondition" : {
+            "@class" : "Script",
+            "content" : "Variable.find(gameModel, 'x').getValue(self) < 10;",
+            "language" : "JavaScript"
+          },
+          "version" : null
+        } ],
+        "version" : null,
+        "x" : 799,
+        "y" : 296
+      }
+    },
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "BooleanDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "BooleanInstance",
+      "refId" : "BooleanInstance:24041470:v1Cr1n",
+      "value" : false
+    },
+    "editorTag" : "ddd",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24041471:Pvt5Rb",
+      "translations" : { }
+    },
+    "name" : "ddd",
+    "refId" : "BooleanDescriptor:24041469:SsRReo",
+    "scopeType" : "TeamScope",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "BooleanDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "BooleanInstance",
+      "refId" : "BooleanInstance:24041475:Pz9W4O",
+      "value" : false
+    },
+    "editorTag" : "ddd",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24041476:YIf33j",
+      "translations" : { }
+    },
+    "name" : "booleanDescriptor",
+    "refId" : "BooleanDescriptor:24041474:ymkUBc",
+    "scopeType" : "TeamScope",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "FSMDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "FSMInstance",
+      "currentStateId" : 1,
+      "enabled" : true,
+      "refId" : "StateMachineInstance:24041502:WSXO2j",
+      "transitionHistory" : [ ]
+    },
+    "editorTag" : "fsm 2 !!!!",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24041503:Fmitik",
+      "translations" : {
+        "EN" : {
+          "@class" : "Translation",
+          "lang" : "EN",
+          "refId" : "TranslatableContent:24041503:Fmitik::EN",
+          "status" : "",
+          "translation" : ""
+        },
+        "FR" : {
+          "@class" : "Translation",
+          "lang" : "FR",
+          "refId" : "TranslatableContent:24041503:Fmitik::FR",
+          "status" : null,
+          "translation" : ""
+        }
+      }
+    },
+    "name" : "stateMachineDescriptor",
+    "refId" : "StateMachineDescriptor:24041501:xacX14",
+    "scopeType" : "TeamScope",
+    "states" : {
+      "2" : {
+        "@class" : "State",
+        "index" : 2,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "Variable.find(gameModel, 'aText').setValue(self, {\n  \"@class\": \"TranslatableContent\",\n  \"translations\": {\n    \"EN\": {\n      \"@class\": \"Translation\",\n      \"lang\": \"EN\",\n      \"status\": \"\",\n      \"translation\": \"CarabistouilleStrouille !\"\n    }\n  },\n  \"version\": 0\n});",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24041504:nDe1bH",
+        "transitions" : [ ],
+        "version" : null,
+        "x" : 799,
+        "y" : 296
+      }
+    },
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "FSMDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "FSMInstance",
+      "currentStateId" : 1,
+      "enabled" : true,
+      "refId" : "StateMachineInstance:24041513:yYtkDG",
+      "transitionHistory" : [ ]
+    },
+    "editorTag" : "fsm !!!!",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24041514:8S9mLM",
+      "translations" : {
+        "EN" : {
+          "@class" : "Translation",
+          "lang" : "EN",
+          "refId" : "TranslatableContent:24041514:8S9mLM::EN",
+          "status" : "",
+          "translation" : ""
+        },
+        "FR" : {
+          "@class" : "Translation",
+          "lang" : "FR",
+          "refId" : "TranslatableContent:24041514:8S9mLM::FR",
+          "status" : null,
+          "translation" : ""
+        }
+      }
+    },
+    "name" : "stateMachineDescriptor_TmWfEJ",
+    "refId" : "StateMachineDescriptor:24041512:1dRE0o",
+    "scopeType" : "TeamScope",
+    "states" : {
+      "1" : {
+        "@class" : "State",
+        "index" : 1,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24041515:oQA7kY",
+        "transitions" : [ {
+          "@class" : "Transition",
+          "dependencies" : [ {
+            "@class" : "TransitionDependency",
+            "refId" : "TransitionDependency:24041517:WJBeqP",
+            "scope" : "SELF",
+            "variableName" : "x"
+          } ],
+          "dependsOnStrategy" : "AUTO",
+          "index" : 0,
+          "label" : "",
+          "nextStateId" : 2,
+          "preStateImpact" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "refId" : "Transition:24041516:qpBVzA",
+          "triggerCondition" : {
+            "@class" : "Script",
+            "content" : "Variable.find(gameModel, 'x').getValue(self) > 15;",
+            "language" : "JavaScript"
+          },
+          "version" : null
+        }, {
+          "@class" : "Transition",
+          "dependencies" : [ ],
+          "dependsOnStrategy" : "AUTO",
+          "index" : 1,
+          "label" : "",
+          "nextStateId" : 3,
+          "preStateImpact" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "refId" : "Transition:#1:gXIoxN",
+          "triggerCondition" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "version" : null
+        } ],
+        "version" : null,
+        "x" : 745,
+        "y" : 534
+      },
+      "2" : {
+        "@class" : "State",
+        "index" : 2,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "Variable.find(gameModel, 'aText').setValue(self, {\n  \"@class\": \"TranslatableContent\",\n  \"translations\": {\n    \"EN\": {\n      \"@class\": \"Translation\",\n      \"lang\": \"EN\",\n      \"status\": \"\",\n      \"translation\": \"CarabistouilleStrouille !\"\n    }\n  },\n  \"version\": 0\n});",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24041518:le6dqR",
+        "transitions" : [ ],
+        "version" : null,
+        "x" : 719,
+        "y" : 70
+      },
+      "3" : {
+        "@class" : "State",
+        "index" : 3,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24041524:BUiVoP",
+        "transitions" : [ {
+          "@class" : "Transition",
+          "dependencies" : [ ],
+          "dependsOnStrategy" : "AUTO",
+          "index" : 0,
+          "label" : "",
+          "nextStateId" : 4,
+          "preStateImpact" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "refId" : "Transition:#0:W5tLHq",
+          "triggerCondition" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "version" : null
+        } ],
+        "version" : null,
+        "x" : 312,
+        "y" : 685
+      },
+      "4" : {
+        "@class" : "State",
+        "index" : 4,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24041525:ErTKRK",
+        "transitions" : [ {
+          "@class" : "Transition",
+          "dependencies" : [ ],
+          "dependsOnStrategy" : "AUTO",
+          "index" : 0,
+          "label" : "",
+          "nextStateId" : 1,
+          "preStateImpact" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "refId" : "Transition:#0:DNk0aK",
+          "triggerCondition" : {
+            "@class" : "Script",
+            "content" : "",
+            "language" : "JavaScript"
+          },
+          "version" : null
+        } ],
+        "version" : null,
+        "x" : 331,
+        "y" : 181
+      }
+    },
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "FSMDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "FSMInstance",
+      "currentStateId" : 3,
+      "enabled" : true,
+      "refId" : "StateMachineInstance:24041529:rbhwO4",
+      "transitionHistory" : [ ]
+    },
+    "editorTag" : "fsm !!!!",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24041530:LJEiGq",
+      "translations" : {
+        "EN" : {
+          "@class" : "Translation",
+          "lang" : "EN",
+          "refId" : "TranslatableContent:24041530:LJEiGq::EN",
+          "status" : "",
+          "translation" : ""
+        },
+        "FR" : {
+          "@class" : "Translation",
+          "lang" : "FR",
+          "refId" : "TranslatableContent:24041530:LJEiGq::FR",
+          "status" : null,
+          "translation" : ""
+        }
+      }
+    },
+    "name" : "stateMachineDescriptor_3zeVBt",
+    "refId" : "StateMachineDescriptor:24041528:ichgkw",
+    "scopeType" : "TeamScope",
+    "states" : {
+      "2" : {
+        "@class" : "State",
+        "index" : 2,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "Variable.find(gameModel, 'aText').setValue(self, {\n  \"@class\": \"TranslatableContent\",\n  \"translations\": {\n    \"EN\": {\n      \"@class\": \"Translation\",\n      \"lang\": \"EN\",\n      \"status\": \"\",\n      \"translation\": \"CarabistouilleStrouille !\"\n    }\n  },\n  \"version\": 0\n});",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24041539:zpDGzQ",
+        "transitions" : [ ],
+        "version" : null,
+        "x" : 740,
+        "y" : 190
+      },
+      "3" : {
+        "@class" : "State",
+        "index" : 3,
+        "label" : "",
+        "onEnterEvent" : {
+          "@class" : "Script",
+          "content" : "",
+          "language" : "JavaScript"
+        },
+        "refId" : "State:24041531:6EQfK5",
+        "transitions" : [ ],
+        "version" : null,
+        "x" : 176,
+        "y" : 457
+      }
+    },
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "TextDescriptor",
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "TextInstance",
+      "refId" : "TextInstance:24047752:pKazDZ",
+      "trValue" : {
+        "@class" : "TranslatableContent",
+        "refId" : "TranslatableContent:24047756:NfcUWL",
+        "translations" : {
+          "EN" : {
+            "@class" : "Translation",
+            "lang" : "EN",
+            "refId" : "TranslatableContent:24047756:NfcUWL::EN",
+            "status" : "",
+            "translation" : "<p>&nbsp;</p>"
+          }
+        }
+      }
+    },
+    "editorTag" : "myText",
+    "isolation" : "OPEN",
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24047753:aLi7Z6",
+      "translations" : { }
+    },
+    "name" : "myText",
+    "refId" : "TextDescriptor:24047751:QhYxHy",
+    "scopeType" : "TeamScope",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "ListDescriptor",
+    "addShortcut" : "",
+    "allowedTypes" : [ ],
+    "broadcastScope" : "TeamScope",
+    "comments" : "",
+    "defaultInstance" : {
+      "@class" : "ListInstance",
+      "refId" : "ListInstance:24061152:HiGtVs"
+    },
+    "editorTag" : "debug",
+    "isolation" : "OPEN",
+    "items" : [ {
+      "@class" : "BooleanDescriptor",
+      "broadcastScope" : "TeamScope",
+      "comments" : "",
+      "defaultInstance" : {
+        "@class" : "BooleanInstance",
+        "refId" : "BooleanInstance:24054302:iVvhR8",
+        "value" : false
+      },
+      "editorTag" : "debug",
+      "isolation" : "OPEN",
+      "label" : {
+        "@class" : "TranslatableContent",
+        "refId" : "TranslatableContent:24054303:eG7P1N",
+        "translations" : { }
+      },
+      "name" : "debug",
+      "refId" : "BooleanDescriptor:24054301:kA7NmT",
+      "scopeType" : "TeamScope",
+      "version" : null,
+      "visibility" : "PRIVATE"
+    }, {
+      "@class" : "ListDescriptor",
+      "addShortcut" : "",
+      "allowedTypes" : [ ],
+      "broadcastScope" : "TeamScope",
+      "comments" : "",
+      "defaultInstance" : {
+        "@class" : "ListInstance",
+        "refId" : "ListInstance:24071400:jd7Kwi"
+      },
+      "editorTag" : "pt1",
+      "isolation" : "OPEN",
+      "items" : [ {
+        "@class" : "NumberDescriptor",
+        "broadcastScope" : "TeamScope",
+        "comments" : "",
+        "defaultInstance" : {
+          "@class" : "NumberInstance",
+          "history" : [ ],
+          "refId" : "NumberInstance:24061157:TxCAjP",
+          "value" : 739575.1344277824
+        },
+        "defaultValue" : 739575.1344277824,
+        "editorTag" : "x",
+        "historySize" : 20,
+        "isolation" : "OPEN",
+        "label" : {
+          "@class" : "TranslatableContent",
+          "refId" : "TranslatableContent:24061158:EIVv6D",
+          "translations" : { }
+        },
+        "maxValue" : null,
+        "minValue" : null,
+        "name" : "x_CW3EaC",
+        "refId" : "NumberDescriptor:24061156:V98aVI",
+        "scopeType" : "TeamScope",
+        "version" : null,
+        "visibility" : "PRIVATE"
+      }, {
+        "@class" : "NumberDescriptor",
+        "broadcastScope" : "TeamScope",
+        "comments" : "",
+        "defaultInstance" : {
+          "@class" : "NumberInstance",
+          "history" : [ ],
+          "refId" : "NumberInstance:24061162:G2tR7W",
+          "value" : 5905414.587132819
+        },
+        "defaultValue" : 5905414.587132819,
+        "editorTag" : "y",
+        "historySize" : 20,
+        "isolation" : "OPEN",
+        "label" : {
+          "@class" : "TranslatableContent",
+          "refId" : "TranslatableContent:24061163:mdxBTu",
+          "translations" : { }
+        },
+        "maxValue" : null,
+        "minValue" : null,
+        "name" : "y",
+        "refId" : "NumberDescriptor:24061161:v1DlhQ",
+        "scopeType" : "TeamScope",
+        "version" : null,
+        "visibility" : "PRIVATE"
+      } ],
+      "label" : {
+        "@class" : "TranslatableContent",
+        "refId" : "TranslatableContent:24071401:2asEhG",
+        "translations" : { }
+      },
+      "name" : "dss",
+      "refId" : "ListDescriptor:24071399:FuAQQ9",
+      "scopeType" : "TeamScope",
+      "version" : null,
+      "visibility" : "PRIVATE"
+    }, {
+      "@class" : "ListDescriptor",
+      "addShortcut" : "",
+      "allowedTypes" : [ ],
+      "broadcastScope" : "TeamScope",
+      "comments" : "",
+      "defaultInstance" : {
+        "@class" : "ListInstance",
+        "refId" : "ListInstance:24071405:4Cx1f2"
+      },
+      "editorTag" : "pt2",
+      "isolation" : "OPEN",
+      "items" : [ {
+        "@class" : "NumberDescriptor",
+        "broadcastScope" : "TeamScope",
+        "comments" : "",
+        "defaultInstance" : {
+          "@class" : "NumberInstance",
+          "history" : [ ],
+          "refId" : "NumberInstance:24071408:8kluvb",
+          "value" : 739575.1344277824
+        },
+        "defaultValue" : 739575.1344277824,
+        "editorTag" : "x2",
+        "historySize" : 20,
+        "isolation" : "OPEN",
+        "label" : {
+          "@class" : "TranslatableContent",
+          "refId" : "TranslatableContent:24071409:MomcIp",
+          "translations" : { }
+        },
+        "maxValue" : null,
+        "minValue" : null,
+        "name" : "x2",
+        "refId" : "NumberDescriptor:24071407:qeJsAY",
+        "scopeType" : "TeamScope",
+        "version" : null,
+        "visibility" : "PRIVATE"
+      }, {
+        "@class" : "NumberDescriptor",
+        "broadcastScope" : "TeamScope",
+        "comments" : "",
+        "defaultInstance" : {
+          "@class" : "NumberInstance",
+          "history" : [ ],
+          "refId" : "NumberInstance:24071411:v4Lrjt",
+          "value" : 5905414.587132819
+        },
+        "defaultValue" : 5905414.587132819,
+        "editorTag" : "y2",
+        "historySize" : 20,
+        "isolation" : "OPEN",
+        "label" : {
+          "@class" : "TranslatableContent",
+          "refId" : "TranslatableContent:24071412:qmEa3i",
+          "translations" : { }
+        },
+        "maxValue" : null,
+        "minValue" : null,
+        "name" : "y2",
+        "refId" : "NumberDescriptor:24071410:oU5fsb",
+        "scopeType" : "TeamScope",
+        "version" : null,
+        "visibility" : "PRIVATE"
+      } ],
+      "label" : {
+        "@class" : "TranslatableContent",
+        "refId" : "TranslatableContent:24071406:vHZEH0",
+        "translations" : { }
+      },
+      "name" : "listDescriptor",
+      "refId" : "ListDescriptor:24071404:yagcwU",
+      "scopeType" : "TeamScope",
+      "version" : null,
+      "visibility" : "PRIVATE"
+    } ],
+    "label" : {
+      "@class" : "TranslatableContent",
+      "refId" : "TranslatableContent:24061153:lnilRL",
+      "translations" : { }
+    },
+    "name" : "debug_baITUf",
+    "refId" : "ListDescriptor:24061151:14MIQ0",
+    "scopeType" : "TeamScope",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  } ],
+  "languages" : [ {
+    "@class" : "GameModelLanguage",
+    "active" : true,
+    "code" : "EN",
+    "indexOrder" : 0,
+    "lang" : "english",
+    "refId" : "gamemodellanguage:9624873OgkFz7",
+    "visibility" : "PROTECTED"
+  }, {
+    "@class" : "GameModelLanguage",
+    "active" : false,
+    "code" : "FR",
+    "indexOrder" : 1,
+    "lang" : "français",
+    "refId" : "GameModelLanguage:24041451:D0o26Q",
+    "visibility" : "PROTECTED"
+  } ],
+  "libraries" : [ {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "batLayer",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:24061166:66APrc",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "heap",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:57129:eN9jPe",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "helprs",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:24033590:gPkyG2",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "layersData",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:24071397:1OR4QI",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "LineOfSight",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:24049051:VtCTYv",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "logger",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:60081:vgHLXn",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "machin",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:24036105:tK1NHt",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "machin2",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:24049701:l50fJC",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "pathFinding",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:24071395:QSJhCt",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "pathFindingImpl5",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:57132:ijfNQ7",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "point2D",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:57591:UmRKev",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "temp",
+    "contentType" : "application/typescript",
+    "libraryType" : "ClientScript",
+    "refId" : "GameModelContent:57801:5x1bzk",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "beauty",
+    "contentType" : "text/css",
+    "libraryType" : "CSS",
+    "refId" : "GameModelContent:#5:0qT6TI",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "test",
+    "contentType" : "text/css",
+    "libraryType" : "CSS",
+    "refId" : "gamemodelcontent:338565nb7Ogp",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "helpers",
+    "contentType" : "application/javascript",
+    "libraryType" : "ServerScript",
+    "refId" : "GameModelContent:24033589:gmmibY",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  }, {
+    "@class" : "GameModelContent",
+    "content" : "",
+    "contentKey" : "default",
+    "contentType" : "json",
+    "libraryType" : "Theme",
+    "refId" : "GameModelContent:24037409:ZGHIMs",
+    "version" : null,
+    "visibility" : "PRIVATE"
+  } ],
+  "name" : "computational geometry backported from HUMAN",
+  "pages" : { },
+  "properties" : {
+    "@class" : "GameModelProperties",
+    "clientScriptUri" : "",
+    "cssUri" : "",
+    "freeForAll" : false,
+    "guestAllowed" : false,
+    "iconUri" : "ICON_orange_gamepad_fa",
+    "logID" : null,
+    "pagesUri" : "",
+    "refId" : "GameModelProperties",
+    "scriptUri" : "",
+    "websocket" : ""
+  },
+  "protected" : false,
+  "refId" : "gamemodel:2652Cu6wLq",
+  "status" : "LIVE",
+  "template" : true,
+  "type" : "SCENARIO",
+  "uiversion" : 2
+}

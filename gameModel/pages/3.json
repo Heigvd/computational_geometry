@@ -1,0 +1,152 @@
+{
+  "props" : {
+    "children" : [ {
+      "props" : {
+        "OSMLayer" : true,
+        "children" : [ {
+          "props" : {
+            "children" : [ {
+              "props" : {
+                "layoutStyle" : { },
+                "style" : { },
+                "text" : {
+                  "@class" : "Script",
+                  "content" : "\"Lorem ipsum\"",
+                  "language" : "JavaScript"
+                }
+              },
+              "type" : "Text"
+            }, {
+              "props" : {
+                "icon" : "address-book",
+                "layoutStyle" : { },
+                "style" : { }
+              },
+              "type" : "Icon"
+            } ],
+            "exposedValueKeys" : { },
+            "getItemsFn" : {
+              "@class" : "Script",
+              "content" : "import { getOverlayItems } from \"./helprs\";\ngetOverlayItems();",
+              "language" : "TypeScript"
+            },
+            "itemKey" : "id",
+            "layoutStyle" : { },
+            "style" : { }
+          },
+          "type" : "WegasMapOverlays"
+        }, {
+          "props" : {
+            "layoutStyle" : { },
+            "selectProps" : {
+              "onSelect" : {
+                "@class" : "ScriptCallback",
+                "args" : [ "event" ],
+                "content" : "wlog(\"OnSelect\", event);\nundefined;"
+              }
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapSelect"
+        }, {
+          "props" : {
+            "layerId" : "",
+            "layerProps" : { },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getFilteredLayer } from \"./batLayer\";\ngetFilteredLayer();",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:2056",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "fill" : {
+                "color" : "lightgrey",
+                "type" : "FillStyle"
+              }
+            },
+            "layoutStyle" : { },
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "children" : [ {
+              "props" : {
+                "label" : {
+                  "@class" : "Script",
+                  "content" : "'Button'",
+                  "language" : "JavaScript"
+                },
+                "layoutStyle" : { },
+                "prefixedLabel" : false,
+                "style" : { }
+              },
+              "type" : "Button"
+            }, {
+              "props" : {
+                "layoutStyle" : { },
+                "style" : { },
+                "text" : {
+                  "@class" : "Script",
+                  "content" : "JSON.stringify(Context)",
+                  "language" : "JavaScript"
+                }
+              },
+              "type" : "Text"
+            }, {
+              "props" : {
+                "icon" : "smile",
+                "layoutStyle" : { },
+                "style" : { }
+              },
+              "type" : "Icon"
+            } ],
+            "layoutStyle" : { },
+            "overlayProps" : {
+              "autoPan" : false,
+              "exposePositionAs" : "coord",
+              "overlayId" : "0",
+              "position" : [ 2539061, 1181210 ]
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapOverlay"
+        } ],
+        "debug" : true,
+        "layoutStyle" : {
+          "height" : "100%"
+        },
+        "mapOptions" : {
+          "controls" : [ "zoomSlider" ],
+          "onClick" : {
+            "@class" : "ScriptCallback",
+            "args" : [ "coord", "features" ],
+            "content" : " wlog(\"OnClick\", coord);\n return;"
+          }
+        },
+        "style" : {
+          "height" : "100%"
+        },
+        "viewOptions" : {
+          "center" : [ 2539119, 1181103 ],
+          "projection" : "EPSG:2056"
+        }
+      },
+      "type" : "WegasMap"
+    } ],
+    "layout" : {
+      "flexDirection" : "column"
+    },
+    "layoutStyle" : {
+      "height" : "100%",
+      "overflow" : "auto",
+      "width" : "100%"
+    }
+  },
+  "type" : "FlexList"
+}

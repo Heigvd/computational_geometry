@@ -1,0 +1,359 @@
+{
+  "props" : {
+    "children" : [ {
+      "props" : {
+        "icon" : "american-sign-language-interpreting",
+        "label" : {
+          "@class" : "Script",
+          "content" : "\"<p>Generate Obstacles<br></p>\"",
+          "language" : "JavaScript"
+        },
+        "layoutStyle" : { },
+        "localScriptEval" : {
+          "script" : {
+            "@class" : "Script",
+            "content" : "import { buildObstacleMatrix } from \"./layersData\";\n\nbuildObstacleMatrix()",
+            "language" : "typescript"
+          }
+        },
+        "name" : "gen obstacles",
+        "style" : { }
+      },
+      "type" : "Button"
+    }, {
+      "props" : {
+        "children" : [ {
+          "props" : {
+            "displayValues" : "NumberInput",
+            "layoutStyle" : { },
+            "onVariableChange" : { },
+            "script" : {
+              "@class" : "Script",
+              "content" : "Variable.find(gameModel,'x_CW3EaC')",
+              "language" : "JavaScript"
+            },
+            "style" : { }
+          },
+          "type" : "NumberSlider"
+        }, {
+          "props" : {
+            "displayValues" : "NumberInput",
+            "layoutStyle" : { },
+            "onVariableChange" : { },
+            "script" : {
+              "@class" : "Script",
+              "content" : "Variable.find(gameModel,'y')",
+              "language" : "JavaScript"
+            },
+            "style" : { }
+          },
+          "type" : "NumberSlider"
+        }, {
+          "props" : {
+            "icon" : "sync-alt",
+            "label" : {
+              "@class" : "Script",
+              "content" : "\"\"",
+              "language" : "JavaScript"
+            },
+            "layoutStyle" : { },
+            "localScriptEval" : {
+              "script" : {
+                "@class" : "Script",
+                "content" : "import { recompute } from \"./LineOfSight\";\nimport { recomputePaths } from \"./pathFinding\";\n\nrecompute();\nrecomputePaths();",
+                "language" : "typescript"
+              }
+            },
+            "style" : { }
+          },
+          "type" : "Button"
+        }, {
+          "props" : {
+            "label" : {
+              "@class" : "Script",
+              "content" : "\"Debug\"",
+              "language" : "JavaScript"
+            },
+            "layoutStyle" : { },
+            "onVariableChange" : { },
+            "script" : {
+              "@class" : "Script",
+              "content" : "Variable.find(gameModel,'debug')",
+              "language" : "JavaScript"
+            },
+            "style" : { },
+            "type" : "checkbox"
+          },
+          "type" : "Boolean"
+        } ]
+      },
+      "type" : "FlexList"
+    }, {
+      "props" : {
+        "OSMLayer" : false,
+        "children" : [ {
+          "props" : {
+            "layerId" : "",
+            "layerProps" : { },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : "/yverdon-seas.geojson",
+              "sourceProjection" : "EPSG:4326",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "fill" : {
+                "color" : "blue",
+                "type" : "FillStyle"
+              },
+              "text" : {
+                "fill" : {
+                  "type" : "FillStyle"
+                },
+                "padding" : [ null, null, null, null ],
+                "stroke" : {
+                  "lineCap" : "round",
+                  "lineJoin" : "round",
+                  "miterLimit" : 10,
+                  "type" : "StrokeStyle"
+                },
+                "text" : "asd",
+                "type" : "TextStyle"
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "water",
+            "onLayerReady" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "layer", "map" ],
+              "content" : "import { setCurrentMapId } from \"./helprs\";\nimport { ObstacleType, updateObstacleMatrixWithLayer } from \"./layersData\";\nsetCurrentMapId('yverdon');// little cheat to have the right obstacle map for the pathfinder\nupdateObstacleMatrixWithLayer(layer, map,'yverdon', ObstacleType.Water, false, 'Recursive',8, true);\nreturn;"
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "",
+            "layerProps" : {
+              "zIndex" : 80
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getCellsLayer } from \"./pathFinding\";\ngetCellsLayer()",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "feature", "resolution" ],
+              "content" : "import { getCellStyle } from \"./pathFinding\";\ngetCellStyle(feature)"
+            },
+            "layoutStyle" : { },
+            "name" : "cells",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "hideIf" : {
+              "@class" : "Script",
+              "content" : "false;",
+              "language" : "JavaScript"
+            },
+            "layerId" : "buildingsddd",
+            "layerProps" : {
+              "zIndex" : 1
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getBatLayer, getFilteredLayer } from \"./batLayer\";\nconst file = (\"/bat.geojson\")\nconst filter= getBatLayer();\nfilter;",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:2056",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "fill" : {
+                "color" : "#aaaaaa33",
+                "type" : "FillStyle"
+              },
+              "stroke" : {
+                "color" : "grey",
+                "lineCap" : "round",
+                "lineJoin" : "round",
+                "miterLimit" : 10,
+                "type" : "StrokeStyle",
+                "width" : 1
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "buildings",
+            "onLayerReady" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "layer", "map" ],
+              "content" : "import { ObstacleType, updateObstacleMatrixWithLayer } from \"./layersData\";\nupdateObstacleMatrixWithLayer(layer, map,'yverdon',ObstacleType.Building, false, 'Recursive', 32);\nreturn;"
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "cvbcxv",
+            "layerProps" : { },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : "/streets.geojson",
+              "sourceProjection" : "EPSG:2056",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "stroke" : {
+                "color" : "grey",
+                "lineCap" : "round",
+                "lineJoin" : "round",
+                "miterLimit" : 10,
+                "type" : "StrokeStyle",
+                "width" : 1
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "streets",
+            "onLayerReady" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "layer", "map" ],
+              "content" : "import { ObstacleType, updateObstacleMatrixWithLayer } from \"./layersData\";\nupdateObstacleMatrixWithLayer(layer, map,'yverdon',ObstacleType.Road, true, 'Recursive', 64);\nreturn;"
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "obstacles",
+            "layerProps" : {
+              "zIndex" : 11
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getLineOfSightObstacles } from \"./LineOfSight\";\ngetLineOfSightObstacles();",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "fill" : {
+                "color" : "#66666699",
+                "type" : "FillStyle"
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "los obstacles",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "cvbcxv",
+            "layerProps" : {
+              "zIndex" : 20
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getLineOfSightLayer } from \"./LineOfSight\";\ngetLineOfSightLayer();",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "feature", "resolution" ],
+              "content" : "import { getStyle } from \"./LineOfSight\";\ngetStyle(feature);"
+            },
+            "layoutStyle" : { },
+            "name" : "LOS layer",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "cvbcxv",
+            "layerProps" : {
+              "zIndex" : 90
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getPathsLayer } from \"./pathFinding\";\ngetPathsLayer();",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "feature", "resolution" ],
+              "content" : "import { getStyle } from \"./pathFinding\";\ngetStyle(feature);"
+            },
+            "layoutStyle" : { },
+            "name" : "paths layer",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        } ],
+        "className" : "xx",
+        "debug" : false,
+        "layoutStyle" : {
+          "height" : "100%"
+        },
+        "mapOptions" : {
+          "controls" : [ "zoomToExtent", "mousePosition" ],
+          "onClick" : {
+            "@class" : "ScriptCallback",
+            "args" : [ "coord", "features" ],
+            "content" : "import { updateLineOfSightFromClick } from \"./LineOfSight\";\nimport { updatePathsFromClick } from \"./pathFinding\";\nupdatePathsFromClick(coord);\nupdateLineOfSightFromClick(coord);"
+          }
+        },
+        "style" : {
+          "height" : "100%"
+        },
+        "viewOptions" : {
+          "center" : [ 739000, 5905800 ],
+          "extent" : [ 738000, 5905300, 739800, 5906600 ],
+          "projection" : "EPSG:3857",
+          "zoom" : 15
+        }
+      },
+      "type" : "WegasMap"
+    } ],
+    "layout" : {
+      "alignItems" : "stretch",
+      "flexDirection" : "column"
+    },
+    "layoutStyle" : {
+      "height" : "100%",
+      "overflow" : "auto",
+      "width" : "100%"
+    },
+    "style" : { }
+  },
+  "type" : "FlexList"
+}

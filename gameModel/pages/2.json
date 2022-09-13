@@ -1,0 +1,179 @@
+{
+  "props" : {
+    "children" : [ {
+      "props" : {
+        "layoutStyle" : { },
+        "onCancel" : { },
+        "onVariableChange" : { },
+        "script" : {
+          "@class" : "Script",
+          "content" : "Variable.find(gameModel,'myText')",
+          "language" : "JavaScript"
+        },
+        "style" : { },
+        "validator" : false
+      },
+      "type" : "Text input"
+    }, {
+      "props" : {
+        "className" : "trololo",
+        "layoutStyle" : { },
+        "style" : { },
+        "text" : {
+          "@class" : "Script",
+          "content" : "\"<img data-file=\\\"/sadasd/Anne_Maxence2.jpg\\\" />\"",
+          "language" : "JavaScript"
+        }
+      },
+      "type" : "Text"
+    }, {
+      "props" : {
+        "className" : "",
+        "layoutStyle" : {
+          "height" : "200px",
+          "width" : "200px"
+        },
+        "script" : {
+          "@class" : "Script",
+          "content" : "\"/sadasd/Anne_Maxence2.jpg\"",
+          "language" : "JavaScript"
+        },
+        "style" : { }
+      },
+      "type" : "Image"
+    }, {
+      "props" : {
+        "className" : "xx",
+        "layoutStyle" : { },
+        "script" : {
+          "@class" : "Script",
+          "content" : "Variable.find(gameModel,'x')",
+          "language" : "JavaScript"
+        },
+        "style" : { }
+      },
+      "type" : "Number"
+    }, {
+      "props" : {
+        "children" : [ {
+          "props" : {
+            "icon" : "minus-circle",
+            "impactVariable" : {
+              "impact" : {
+                "@class" : "Script",
+                "content" : "Variable.find(gameModel, 'x').add(self, -1);",
+                "language" : "JavaScript"
+              }
+            },
+            "label" : {
+              "@class" : "Script",
+              "content" : "\"1\"",
+              "language" : "JavaScript"
+            },
+            "layoutStyle" : { },
+            "style" : { }
+          },
+          "type" : "Button"
+        }, {
+          "props" : {
+            "icon" : "plus-circle",
+            "impactVariable" : {
+              "impact" : {
+                "@class" : "Script",
+                "content" : "Variable.find(gameModel, 'x').add(self, 1);",
+                "language" : "JavaScript"
+              }
+            },
+            "label" : {
+              "@class" : "Script",
+              "content" : "\"1\"",
+              "language" : "JavaScript"
+            },
+            "layoutStyle" : { },
+            "style" : { }
+          },
+          "type" : "Button"
+        }, {
+          "props" : {
+            "icon" : "times",
+            "impactVariable" : {
+              "impact" : {
+                "@class" : "Script",
+                "content" : "mul(\"x\", 2);",
+                "language" : "JavaScript"
+              }
+            },
+            "label" : {
+              "@class" : "Script",
+              "content" : "\"2\"",
+              "language" : "JavaScript"
+            },
+            "layoutStyle" : { },
+            "style" : { }
+          },
+          "type" : "Button"
+        } ],
+        "className" : "x",
+        "layout" : { },
+        "layoutStyle" : { },
+        "style" : { }
+      },
+      "type" : "FlexList"
+    }, {
+      "props" : {
+        "layoutStyle" : { },
+        "onCancel" : { },
+        "onVariableChange" : { },
+        "script" : {
+          "@class" : "Script",
+          "content" : "Variable.find(gameModel,'aText')",
+          "language" : "JavaScript"
+        },
+        "style" : { }
+      },
+      "type" : "String input"
+    }, {
+      "props" : {
+        "layoutStyle" : { },
+        "style" : { },
+        "text" : {
+          "@class" : "Script",
+          "content" : "\"Un <strong>text</strong> en <em>dur</em> ! Carr&eacute;ment ! s\"",
+          "language" : "JavaScript"
+        }
+      },
+      "type" : "Text"
+    }, {
+      "props" : {
+        "layoutStyle" : { },
+        "style" : { },
+        "text" : {
+          "@class" : "Script",
+          "content" : "I18n.toString(Variable.find(gameModel,'aText'));",
+          "language" : "JavaScript"
+        }
+      },
+      "type" : "Text"
+    }, {
+      "props" : {
+        "layoutStyle" : { },
+        "style" : { },
+        "text" : {
+          "@class" : "Script",
+          "content" : "import { computeText } from \"./helprs\";\ncomputeText();",
+          "language" : "JavaScript"
+        }
+      },
+      "type" : "Text"
+    } ],
+    "layout" : {
+      "flexDirection" : "column"
+    },
+    "style" : {
+      "height" : "100%",
+      "overflow" : "auto",
+      "width" : "100%"
+    }
+  },
+  "type" : "FlexList"
+}

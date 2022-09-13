@@ -1,0 +1,343 @@
+{
+  "props" : {
+    "children" : [ {
+      "props" : {
+        "icon" : "american-sign-language-interpreting",
+        "label" : {
+          "@class" : "Script",
+          "content" : "\"<p>Generate Obstacles<br></p>\"",
+          "language" : "JavaScript"
+        },
+        "layoutStyle" : { },
+        "localScriptEval" : {
+          "script" : {
+            "@class" : "Script",
+            "content" : "import { buildObstacleMatrix } from \"./layersData\";\n\nbuildObstacleMatrix(true)",
+            "language" : "typescript"
+          }
+        },
+        "name" : "gen obstacles",
+        "style" : { }
+      },
+      "type" : "Button"
+    }, {
+      "props" : {
+        "children" : [ {
+          "props" : {
+            "displayValues" : "NumberInput",
+            "layoutStyle" : { },
+            "onVariableChange" : { },
+            "script" : {
+              "@class" : "Script",
+              "content" : "Variable.find(gameModel,'x_CW3EaC')",
+              "language" : "JavaScript"
+            },
+            "style" : { }
+          },
+          "type" : "NumberSlider"
+        }, {
+          "props" : {
+            "displayValues" : "NumberInput",
+            "layoutStyle" : { },
+            "onVariableChange" : { },
+            "script" : {
+              "@class" : "Script",
+              "content" : "Variable.find(gameModel,'y')",
+              "language" : "JavaScript"
+            },
+            "style" : { }
+          },
+          "type" : "NumberSlider"
+        }, {
+          "props" : {
+            "icon" : "sync-alt",
+            "label" : {
+              "@class" : "Script",
+              "content" : "\"\"",
+              "language" : "JavaScript"
+            },
+            "layoutStyle" : { },
+            "localScriptEval" : {
+              "script" : {
+                "@class" : "Script",
+                "content" : "import { recompute } from \"./LineOfSight\";\nimport { recomputePaths } from \"./pathFinding\";\n\nrecompute();\nrecomputePaths();",
+                "language" : "typescript"
+              }
+            },
+            "style" : { }
+          },
+          "type" : "Button"
+        }, {
+          "props" : {
+            "label" : {
+              "@class" : "Script",
+              "content" : "\"Debug\"",
+              "language" : "JavaScript"
+            },
+            "layoutStyle" : { },
+            "onVariableChange" : { },
+            "script" : {
+              "@class" : "Script",
+              "content" : "Variable.find(gameModel,'debug')",
+              "language" : "JavaScript"
+            },
+            "style" : { },
+            "type" : "checkbox"
+          },
+          "type" : "Boolean"
+        } ]
+      },
+      "type" : "FlexList"
+    }, {
+      "props" : {
+        "OSMLayer" : false,
+        "children" : [ {
+          "props" : {
+            "layerId" : "",
+            "layerProps" : { },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : "/genf/genf_water.geojson",
+              "sourceProjection" : "EPSG:4326",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "fill" : {
+                "color" : "rgb(80,150,200)",
+                "type" : "FillStyle"
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "water",
+            "onLayerReady" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "layer", "map" ],
+              "content" : "import { setCurrentMapId } from \"./helprs\";\nimport { ObstacleType, updateObstacleMatrixWithLayer } from \"./layersData\";\nsetCurrentMapId('geneva');\nupdateObstacleMatrixWithLayer(layer, map, 'geneva', ObstacleType.Water, false, 'Recursive', undefined, true);\nreturn;"
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "",
+            "layerProps" : {
+              "zIndex" : 80
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getCellsLayer } from \"./pathFinding\";\ngetCellsLayer()",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "feature", "resolution" ],
+              "content" : "import { getCellStyle } from \"./pathFinding\";\ngetCellStyle(feature)"
+            },
+            "layoutStyle" : { },
+            "name" : "cells",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "hideIf" : {
+              "@class" : "Script",
+              "content" : "false;",
+              "language" : "JavaScript"
+            },
+            "layerId" : "buildingsddd",
+            "layerProps" : {
+              "zIndex" : 1
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : "/genf/genf_buildings.geojson",
+              "sourceProjection" : "EPSG:4326",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "fill" : {
+                "color" : "#aaaaaa33",
+                "type" : "FillStyle"
+              },
+              "stroke" : {
+                "color" : "grey",
+                "lineCap" : "round",
+                "lineJoin" : "round",
+                "miterLimit" : 10,
+                "type" : "StrokeStyle",
+                "width" : 1
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "buildings",
+            "onLayerReady" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "layer", "map" ],
+              "content" : "import { ObstacleType, updateObstacleMatrixWithLayer } from \"./layersData\";\nupdateObstacleMatrixWithLayer(layer, map,'geneva', ObstacleType.Building, false, 'Recursive');\nreturn;"
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "cvbcxv",
+            "layerProps" : {
+              "zIndex" : 100
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : "/genf/genf_roads.geojson",
+              "sourceProjection" : "EPSG:4326",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "stroke" : {
+                "color" : "grey",
+                "lineCap" : "round",
+                "lineJoin" : "round",
+                "miterLimit" : 10,
+                "type" : "StrokeStyle",
+                "width" : 1
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "streets",
+            "onLayerReady" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "layer", "map" ],
+              "content" : "import { ObstacleType, updateObstacleMatrixWithLayer } from \"./layersData\";\nupdateObstacleMatrixWithLayer(layer, map,'geneva', ObstacleType.Road, true, 'Recursive'); \nreturn;"
+            },
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "obstacles",
+            "layerProps" : {
+              "zIndex" : 11
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getLineOfSightObstacles } from \"./LineOfSight\";\ngetLineOfSightObstacles();",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "fill" : {
+                "color" : "#66666699",
+                "type" : "FillStyle"
+              }
+            },
+            "layoutStyle" : { },
+            "name" : "los obstacles",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "cvbcxv",
+            "layerProps" : {
+              "zIndex" : 20
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getLineOfSightLayer } from \"./LineOfSight\";\ngetLineOfSightLayer();",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "feature", "resolution" ],
+              "content" : "import { getStyle } from \"./LineOfSight\";\ngetStyle(feature);"
+            },
+            "layoutStyle" : { },
+            "name" : "LOS layer",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        }, {
+          "props" : {
+            "layerId" : "cvbcxv",
+            "layerProps" : {
+              "zIndex" : 90
+            },
+            "layerSource" : {
+              "dataType" : "GeoJSON",
+              "source" : {
+                "@class" : "Script",
+                "content" : "import { getPathsLayer } from \"./pathFinding\";\ngetPathsLayer();",
+                "language" : "typescript"
+              },
+              "sourceProjection" : "EPSG:3857",
+              "type" : "VectorLayer",
+              "useSpatialIndex" : true
+            },
+            "layerStyle" : {
+              "@class" : "ScriptCallback",
+              "args" : [ "feature", "resolution" ],
+              "content" : "import { getStyle } from \"./pathFinding\";\ngetStyle(feature);"
+            },
+            "layoutStyle" : { },
+            "name" : "paths layer",
+            "style" : { }
+          },
+          "type" : "WegasMapVectorLayer"
+        } ],
+        "className" : "xx",
+        "debug" : false,
+        "layoutStyle" : {
+          "height" : "100%"
+        },
+        "mapOptions" : {
+          "controls" : [ "zoomToExtent", "mousePosition" ],
+          "onClick" : {
+            "@class" : "ScriptCallback",
+            "args" : [ "coord", "features" ],
+            "content" : "import { updateLineOfSightFromClick } from \"./LineOfSight\";\nimport { updatePathsFromClick } from \"./pathFinding\";\nupdatePathsFromClick(coord);\nupdateLineOfSightFromClick(coord);"
+          }
+        },
+        "style" : {
+          "height" : "100%"
+        },
+        "viewOptions" : {
+          "center" : [ 684000, 5813300 ],
+          "extent" : [ 683300, 5812600, 684700, 5814000 ],
+          "projection" : "EPSG:3857",
+          "zoom" : 10
+        }
+      },
+      "type" : "WegasMap"
+    } ],
+    "layout" : {
+      "alignItems" : "stretch",
+      "flexDirection" : "column"
+    },
+    "layoutStyle" : {
+      "height" : "100%",
+      "overflow" : "auto",
+      "width" : "100%"
+    },
+    "style" : { }
+  },
+  "type" : "FlexList"
+}
