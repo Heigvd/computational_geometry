@@ -187,7 +187,6 @@ export function getCellGridLayer(pathFinder: PathFinder5, width: number, height:
 	}
 	else if(cellOption === 'Recursive'){
 
-		console.log(obstacleExtents.current);
 		Object.values(ObstacleType).filter(x => !isNaN(x as ObstacleType)).forEach((v) => 
 		{
 			let color = '#0000AA88';
@@ -201,7 +200,7 @@ export function getCellGridLayer(pathFinder: PathFinder5, width: number, height:
 				case ObstacleType.Water:
 					color = `rgba(0, 50, 240, 0.5)`;
 			}
-			wlog('curr map id', getCurrentMapId());
+			//wlog('curr map id', getCurrentMapId());
 			const exts = obstacleExtents.current[getCurrentMapId()][v as ObstacleType];
 			if(!exts) return;
 			for(let i = 0; i < exts.length && i < 20000; i++){
@@ -294,6 +293,10 @@ function lineLength(path: Point[]){
 
 
 export function updatePathsFromClick(point: [number, number]) {
+
+	const offset = obstacleGrids.current[getCurrentMapId()].cellSize * 0.5;
+	point[0] -= offset;
+	point[1] -= offset;
 	data.from.x = data.to.x || point[0];
 	data.from.y = data.to.y || point[1];
 	data.to.x = point[0];

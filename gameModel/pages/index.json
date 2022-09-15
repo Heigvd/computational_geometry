@@ -10,12 +10,6 @@
       "trainerPage" : null
     }, {
       "@class" : "Page",
-      "id" : "1",
-      "name" : "truc",
-      "scenaristPage" : true,
-      "trainerPage" : null
-    }, {
-      "@class" : "Page",
       "id" : "3",
       "name" : "aMap",
       "scenaristPage" : null,

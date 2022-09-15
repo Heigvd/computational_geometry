@@ -1,7 +1,8 @@
 import { getPblosPolygon } from "./machin";
 import { getPblosPolygon2 } from "./machin2";
 
-import { buildingLayer, Point, Segment, Shape } from './layersData';
+import { buildingLayer, Shape } from './layersData';
+import { Point, Segment } from "./point2D";
 
 function modulo(n: number, m: number) {
 	return ((n % m) + m) % m;

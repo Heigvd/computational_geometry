@@ -1,5 +1,3 @@
-export const x = "Salut 22345678";
-
 
 export function getOverlayItems() : OverlayItem[] {
 	return [
